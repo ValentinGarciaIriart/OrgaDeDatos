@@ -187,19 +187,19 @@ public class Prueba {
 		boolean rta;
 		int auxLetra = (int) letra;
 		switch (auxLetra) {
-		case 32: {
+		case 32: { // espacio
 			rta = true;
 			break;
 		}
-		case 46: {
+		case 46: { // .
 			rta = true;
 			break;
 		}
-		case 59: {
+		case 59: {// ;
 			rta = true;
 			break;
 		}
-		case 44: {
+		case 44: { // ,
 			rta = true;
 			break;
 		}

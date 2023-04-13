@@ -7,7 +7,7 @@ public class Prueba {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		//String abecedario= "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
-		String abecedario= "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+		String abecedario= "ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyzáéíóú ,.";
 		//String abecedario3= "abcdefghijklmnñopqrstuvwxyz";
 		System.out.println("Ingrese mensaje a encriptar");
 		String mensaje= scan.nextLine();
@@ -35,7 +35,7 @@ public class Prueba {
 			}
 	
 		}
-		System.out.println("Encriptado Cesar con ñ:" + encriptado);
+		System.out.println("Encriptado Cesar con ñ:   " + encriptado);
 		//System.out.println("Mensaje:               "+mensaje);
 		return encriptado;
 	}
@@ -92,20 +92,6 @@ public class Prueba {
 
 	public static char caracterTilde(char letra) {
 		switch (letra) {
-		case 'á':
-			return 'a';
-		case 'é':
-			return 'e';
-
-		case 'í':
-			return 'i';
-
-		case 'ó':
-			return 'o';
-
-		case 'ú':
-			return 'u';
-
 		case 'Á':
 			return 'A';
 
@@ -131,19 +117,7 @@ public class Prueba {
 		boolean rta;
 		int auxLetra = (int) letra;
 		switch (auxLetra) {
-		case 32: {
-			rta = true;
-			break;
-		}
-		case 46: {
-			rta = true;
-			break;
-		}
 		case 59: {
-			rta = true;
-			break;
-		}
-		case 44: {
 			rta = true;
 			break;
 		}

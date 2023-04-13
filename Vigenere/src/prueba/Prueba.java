@@ -10,14 +10,14 @@ public class Prueba {
 
 		char[][] matCompleta = generaVigenere(); //[a..z][A..Z]
 		char[][] matMinus = generaVigenere2(); //[a..z]
-		char[][]matMayus = generaVigenere3(); //[A..Z]
+		char[][] matMayus = generaVigenere3(); //[A..Z]
 		Scanner scan = new Scanner (System.in);
 		System.out.println("Ingrese mensaje a encriptar");
 		String mensaje = scan.nextLine();
 		System.out.println("Ingrese clave");
 		String clave = scan.nextLine();
-		String encriptado = encriptarVigenere(clave,mensaje,matCompleta);
-		desencriptarVigenere(clave,encriptado,matCompleta);
+		String encriptado = encriptarVigenere(clave,mensaje,matMayus);
+		desencriptarVigenere(clave,encriptado,matMayus);
 		//muestraMatriz(matMayus);
 		
 		
@@ -59,7 +59,7 @@ public class Prueba {
 					desencriptado+=letra;
 			}
 		}
-		System.out.println("Desencriptado Vigenere:"+desencriptado);
+		System.out.println("Desencriptado:      "+desencriptado);
 	}
 	
 	public static int buscaLetra(int fila,char columna,char[][] mat) {
@@ -72,6 +72,7 @@ public class Prueba {
 	public static String encriptarVigenere (String clave,String mensaje,char mat[][]) {
 		int i,j,fila,col,cont=0;
 		String encriptado="";
+		String claveMapeada="";
 		for(i=0;i<mensaje.length();i++) {
 			if(cont==clave.length())
 				cont=0;
@@ -79,6 +80,7 @@ public class Prueba {
 			boolean caracterEspecial = verificaNoLetra(mensaje.charAt(i));
 			if(caracterEspecial) {
 				encriptado+=letra;
+				claveMapeada+=letra;
 			}
 			else {
 				fila=buscaFila(clave.charAt(cont),mat);
@@ -94,10 +96,13 @@ public class Prueba {
 					cont++;
 					encriptado+=letra;*/
 				encriptado+=mat[fila][col];
+				claveMapeada+=clave.charAt(cont);
 				cont++;
 			}
 		}
 		System.out.println("Encriptado Vigenere:"+encriptado);
+		System.out.println("Clave Mapeada:      "+claveMapeada);
+		
 		return encriptado;
 	}
 	

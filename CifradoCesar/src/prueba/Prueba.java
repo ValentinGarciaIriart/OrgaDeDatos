@@ -13,13 +13,14 @@ public class Prueba {
 		char desplazamiento = scan.nextLine().charAt(0);
 		System.out.println("Ingrese salto");
 		int saltoOrig= scan.nextInt();
-		String mensaje = "El cifrado César, es una de las técnicas más simples; consiste en reemplazar cada letra por otra que se encuentra un número fijo de posiciones más adelante.";
-		String abecedario="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		String mensaje = "Nos vemos el lunes 24 a las 18hs en Plaza Mitre";
+		String abecedario="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 		String abecedario2="abcdefghijklmnopqrstuvwxyz";
 		String encriptado="";
 
 		if (alfabeto == 'i' || alfabeto =='I') {
 			encriptado=encriptacionCesar(mensaje,desplazamiento,saltoOrig,abecedario2);
+			//encriptado="ufwf xtgwjananw js jxyj rzsit ijgt zxfw qnszc"; // solo para la consigna esa de NIKON
 			desencriptado(encriptado,abecedario2,desplazamiento,saltoOrig);
 		}
 		else {
@@ -35,6 +36,7 @@ public class Prueba {
 	
 	public static void desencriptado(String encriptado,String abecedario,char desplazamiento,int salto) {
 		String desencriptado="";
+		System.out.println("Para que veas que no mande el mensaje directamente, esto es lo encriptado: " + encriptado);
 		int j;
 		for(int i=0;i<encriptado.length();i++) {
 			char letra=caracterConTilde(encriptado.charAt(i));
@@ -52,7 +54,7 @@ public class Prueba {
 				
 			}
 			}
-		System.out.println("Desencriptado:"+desencriptado);
+		System.out.println("Desencriptado: "+ desencriptado);
 		
 	}
 	
@@ -75,7 +77,7 @@ public class Prueba {
 				
 		}
 	}
-		System.out.println("Encriptado Cesar:"+encriptado);
+		System.out.println("Encriptado Cesar: "+encriptado);
 		return encriptado;
 }
 	

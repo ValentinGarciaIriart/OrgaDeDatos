@@ -12,10 +12,10 @@ public class Prueba {
 		String claveAuxiliar = scan.nextLine();
 		char[] clave = pasajeArray(claveAuxiliar);
 		
-		String abecedarioCompleto="abcdefghijklmnopqrstuvwyxzABCDEFGHIJKLMNOPQRSTUVWXYZ"; //ABECEDARIO COMPLETO
+		String abecedarioCompleto="abcdefghijklmnopqrstuvwyxzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"; //ABECEDARIO COMPLETO
 		String abecedarioIncompleto="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		String encriptado=encriptacionConfederados(mensaje,clave,abecedarioIncompleto);
-		desencriptacion(encriptado,clave,abecedarioIncompleto);
+		String encriptado=encriptacionConfederados(mensaje,clave,abecedarioCompleto);
+		desencriptacion(encriptado,clave,abecedarioCompleto);
 
 	}
 

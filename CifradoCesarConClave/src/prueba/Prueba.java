@@ -8,8 +8,9 @@ public class Prueba {
 	public static void main(String[] args) {
 		//BLOQUE DE INICIALIZACION
 		Scanner scan = new Scanner (System.in);
-		System.out.println("Ingrese mensaje a encriptar");
-		String mensaje = scan.nextLine();
+		//System.out.println("Ingrese mensaje a encriptar");
+		//String mensaje = scan.nextLine();
+		String mensaje = "Nos vemos el lunes 24 a las 18hs en Plaza Mitre";
 		System.out.println("Ingrese clave");
 		String clave = scan.nextLine();
 		System.out.println("Ingrese desplazamiento: i:izquierda | d:derecha");
@@ -18,7 +19,7 @@ public class Prueba {
 		int salto= scan.nextInt();
 		
 		
-		String abecedario="abcdefghijklmnopqrstuvwyxzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		String abecedario="abcdefghijklmnopqrstuvwyxzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 		String abecedarioCesar = generaAbecedarioCesar(clave,salto,desplazamiento,abecedario);
 		String encriptado="";
 		
