@@ -5,7 +5,9 @@ import java.util.Scanner;
 public class Prueba {
 
 	public static void main(String[] args) {
+		//String cuadradoPolibio[][] = generaMatPolibio();
 		String cuadradoPolibio[][] = generaMatPolibioNum();
+		
 		//muestraMat(cuadradoPolibio);
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Ingrese mensaje a encriptar");
@@ -18,7 +20,7 @@ public class Prueba {
 			char letra = caracterTilde(mensaje.charAt(m));
 			caracterEspecial = verificaNoLetra(mensaje.charAt(m));
 			for (i = 0; i < cuadradoPolibio.length; i++) {
-				for (j = 0; j < cuadradoPolibio.length-2; j++) {
+				for (j = 0; j < cuadradoPolibio.length; j++) {
 					if (encontrado == false) {
 						if (String.valueOf(letra).equalsIgnoreCase(cuadradoPolibio[i][j])) {
 							int auxI = i + 1;
@@ -29,23 +31,16 @@ public class Prueba {
 						} else if (caracterEspecial==true) {
 							encriptado += letra;
 							encontrado = true;
-						} else if (String.valueOf(letra).equalsIgnoreCase("j")
+							
+						} /*else if (String.valueOf(letra).equalsIgnoreCase("j")
 								|| String.valueOf(letra).equalsIgnoreCase("i")) {
 							encriptado += "24";
 							encontrado = true;
-						}
-						/*else if(letra >= 0 && (int)letra <= 9) {
-							//encriptado += letra;
-							//encontrado= true;
-							int auxI = i + 1;
-							int auxJ = j + 1;
-							encriptado += auxI;
-							encriptado += auxJ;
-							encontrado = true;
-						}*/
+						}*/ //ESTO ES PARA CUANDO LA I Y LA J ESTAN JUNTAS
+						
 					} else {
-						i = 7;
-						j = 5;
+						i = 6;
+						j = 6;
 					}
 				}
 
@@ -192,27 +187,22 @@ public class Prueba {
 		return matPolib;
 
 	}
+
 	public static String[][] generaMatPolibioNum() {
-		String matPolib[][] = new String[7][5];
+		String matPolib[][] = new String[6][6];
 		int ASCII = 65;
-		for (int i = 0; i < 5; i++) {
-			for (int j = 0; j < 5; j++) {
-				if (i == 1 && j == 3) {
-					matPolib[i][j] = "IJ";
-					ASCII += 2;
+		for (int i = 0; i < matPolib.length; i++) {
+			for (int j = 0; j < matPolib.length; j++) {
+				if (ASCII == 90) {
+					matPolib[i][j] = "Z";
+					ASCII = 48;
 				} else {
 					matPolib[i][j] = String.valueOf((char) ASCII);
 					ASCII++;
 				}
 			}
 		}
-		ASCII = 48; //ahora hay que agregar los numeros a la matriz de polibio
-		for(int i = 5;i < 7;i++) {
-			for(int j = 0;j< 5;j++) {
-				matPolib[i][j] =  String.valueOf((char) ASCII);
-				ASCII++;
-			}
-		}
+
 		return matPolib;
 
 	}
