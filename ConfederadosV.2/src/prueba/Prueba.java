@@ -14,14 +14,63 @@ public class Prueba {
 		
 		String abecedarioCompleto="abcdefghijklmnopqrstuvwyxzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"; //ABECEDARIO COMPLETO
 		String abecedarioIncompleto="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		String abecedarioSanti= "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ ";
-		String encriptado=encriptacionConfederados(mensaje,clave,abecedarioSanti);
-		//desencriptacion(encriptado,clave,abecedarioSanti);
+		String abecedarioSanti="ABCDEFGHIJKLMNÑOPQRSTUVWXYZ ";
+		
+		//HAY 2 ENCRIPTACIONES, UNA QUE TIENE EN CUENTA EL ESPACIO EN EL ABECEDARIO Y OTRA QUE NO
+		
+		String encriptado=encriptacionConfederadosEspacio(mensaje,clave,abecedarioSanti);
+		desencriptacionEspacio(encriptado,clave,abecedarioSanti);
 
 	}
 
-
-	
+	public static void desencriptacionEspacio(String encriptado,char clave[],String abecedario) {
+		String desencriptado="";
+		int i,cont=0,auxEncriptacion,auxClave;
+		for(i=0;i<encriptado.length();i++) {
+			char letra = caracterTilde(encriptado.charAt(i));
+			boolean caracterEspecial = verificaNoLetra(encriptado.charAt(i));
+			if (caracterEspecial && letra!=' ') 
+				desencriptado += letra;
+			else {
+				auxEncriptacion=buscaPos(letra,abecedario);
+				auxClave=buscaPos(clave[cont],abecedario);
+				letra=getLetraDesencriptada(auxEncriptacion,auxClave,abecedario);
+				desencriptado+=letra;
+				cont++;
+				
+			}
+			if (cont == clave.length)
+				cont = 0;
+		}
+		System.out.println("Desencriptacion: "+desencriptado);
+		
+	}
+	public static String encriptacionConfederadosEspacio(String mensaje,char[] clave, String abecedario) {
+		String encriptado="",claveMapeada="";
+		int i,cont=0,auxMensaje,auxClave;
+		for(i=0;i<mensaje.length();i++) {
+			char letra = caracterTilde(mensaje.charAt(i));
+			boolean caracterEspecial = verificaNoLetra(mensaje.charAt(i));
+			if (caracterEspecial && letra!=' ') {
+				encriptado += letra;
+				claveMapeada+=" ";
+			}else {
+				auxMensaje=buscaPos(letra,abecedario);
+				auxClave=buscaPos(clave[cont],abecedario);
+				letra=getLetraEncriptada(auxMensaje,auxClave,abecedario);
+				encriptado+=letra;
+				claveMapeada+=clave[cont];
+				cont++;
+				
+			}
+			if (cont == clave.length)
+				cont = 0;
+		}
+		System.out.println("Encriptado Confederados:" + encriptado);
+		System.out.println("Clave Mapeada:          "+claveMapeada);
+		System.out.println("Mensaje:                "+mensaje);
+		return encriptado;
+	}
 	public static void desencriptacion(String encriptado,char clave[],String abecedario) {
 		String desencriptado="";
 		int i,cont=0,auxEncriptacion,auxClave;
