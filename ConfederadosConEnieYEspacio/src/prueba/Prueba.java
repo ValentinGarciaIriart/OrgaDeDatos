@@ -6,7 +6,7 @@ public class Prueba {
 
 	public static void main(String[] args) {
 		//String abecedario="abcdefghijklmnopqrstuvwxyz ";
-		//String abecedario="ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
+		//String abecedario="ABCDEFGHIJKLMNÑOPQRSTUVWXYZ ";
 		//String abecedario="abcdefghijklmnñopqrstuvwxyz ";
 		//String abecedario="abcdefghijklmnopqrstuvwxyz ";
 		String abecedario;

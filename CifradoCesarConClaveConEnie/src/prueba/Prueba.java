@@ -15,8 +15,12 @@ public class Prueba {
 		char desplazamiento = scan.nextLine().charAt(0);
 		System.out.println("Ingrese salto");
 		int salto= scan.nextInt();
+		
+		
 		//String abecedario="abcdefghijklmnñopqrstuvwyxzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";  //PARA CUANDO TENGA EL ABECEDARIO COMPLETO
 		String abecedario="ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"; //ABECEDARIO MAYUSCULAS
+		
+		
 		
 		System.out.println(abecedario);
 		String abecedarioCesar = generaAbecedarioCesar(clave,salto,desplazamiento,abecedario);

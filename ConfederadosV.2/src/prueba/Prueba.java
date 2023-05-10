@@ -14,11 +14,14 @@ public class Prueba {
 		
 		String abecedarioCompleto="abcdefghijklmnopqrstuvwyxzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"; //ABECEDARIO COMPLETO
 		String abecedarioIncompleto="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		String encriptado=encriptacionConfederados(mensaje,clave,abecedarioCompleto);
-		desencriptacion(encriptado,clave,abecedarioCompleto);
+		String abecedarioSanti= "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ ";
+		String encriptado=encriptacionConfederados(mensaje,clave,abecedarioSanti);
+		//desencriptacion(encriptado,clave,abecedarioSanti);
 
 	}
 
+
+	
 	public static void desencriptacion(String encriptado,char clave[],String abecedario) {
 		String desencriptado="";
 		int i,cont=0,auxEncriptacion,auxClave;

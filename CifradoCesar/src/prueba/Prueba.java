@@ -96,33 +96,33 @@ public class Prueba {
 	public static char caracterConTilde(char letra) {
 
 		switch (letra) {
-		case 'Ã¡':
+		case 'á':
 			return 'a';
-		case 'Ã©':
+		case 'é':
 			return 'e';
 
-		case 'Ã­':
+		case 'í':
 			return 'i';
 
-		case 'Ã³':
+		case 'ó':
 			return 'o';
 
-		case 'Ãº':
+		case 'ú':
 			return 'u';
 
-		case 'Ã':
+		case 'Á':
 			return 'A';
 
-		case 'Ã‰':
+		case 'É':
 			return 'E';
 
-		case 'Ã':
+		case 'Í':
 			return 'I';
 
-		case 'Ã“':
+		case 'Ó':
 			return 'O';
 
-		case 'Ãš':
+		case 'Ú':
 			return 'U';
 
 		default: return letra;
