@@ -125,10 +125,22 @@ public class Prueba {
 		return rta;
 	}
 	
+	public static boolean buscaLetraClave(String clave, char letra) {
+		int i=0;
+		while(i<clave.length() && clave.charAt(i)!=letra) {
+			i++;
+		}
+		if(i<clave.length())
+			return true;
+		else 
+			return false;
+		
+		
+	}
 	public static String generaAbecedarioCesar(String clave,int salto,char desplazamiento,String abecedario) {
 		String abecedarioAux=abecedario;
 		String aux="";
-		boolean bool;
+		boolean bool,estaClave;
 		int i;
 		String rta="";
 		if(String.valueOf(desplazamiento).equalsIgnoreCase("d")) {
@@ -136,6 +148,8 @@ public class Prueba {
 			aux+=abecedarioAux;
 			abecedarioAux="";
 			for(i=salto;i>0;i--) {
+				estaClave=buscaLetraClave(clave,abecedario.charAt(abecedario.length()-i));
+				if(estaClave == false)
 				abecedarioAux+=abecedario.charAt(abecedario.length()-i);
 			}
 			abecedarioAux+=aux;

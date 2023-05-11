@@ -10,7 +10,7 @@ public class Prueba {
 		Scanner scan = new Scanner (System.in);
 		//System.out.println("Ingrese mensaje a encriptar");
 		//String mensaje = scan.nextLine();
-		String mensaje = "Nos vemos el lunes 24 a las 18hs en Plaza Mitre";
+		String mensaje = "ALAMBRE";
 		System.out.println("Ingrese clave");
 		String clave = scan.nextLine();
 		System.out.println("Ingrese desplazamiento: i:izquierda | d:derecha");
@@ -19,7 +19,9 @@ public class Prueba {
 		int salto= scan.nextInt();
 		
 		
-		String abecedario="abcdefghijklmnopqrstuvwyxzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		//String abecedario="abcdefghijklmnopqrstuvwyxzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		String abecedario= "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+		System.out.println(abecedario);
 		String abecedarioCesar = generaAbecedarioCesar(clave,salto,desplazamiento,abecedario);
 		String encriptado="";
 		
@@ -129,10 +131,24 @@ public class Prueba {
 		return rta;
 	}
 	
+	
+	public static boolean buscaLetraClave(String clave, char letra) {
+		int i=0;
+		while(i<clave.length() && clave.charAt(i)!=letra) {
+			i++;
+		}
+		if(i<clave.length())
+			return true;
+		else 
+			return false;
+		
+		
+	}
 	public static String generaAbecedarioCesar(String clave,int salto,char desplazamiento,String abecedario) {
 		String abecedarioAux=abecedario;
 		String aux="";
 		boolean bool;
+		boolean estaClave;
 		int i;
 		String rta="";
 		if(String.valueOf(desplazamiento).equalsIgnoreCase("d")) {
@@ -140,6 +156,8 @@ public class Prueba {
 			aux+=abecedarioAux;
 			abecedarioAux="";
 			for(i=salto;i>0;i--) {
+				estaClave=buscaLetraClave(clave,abecedario.charAt(abecedario.length()-i));
+				if(estaClave == false)
 				abecedarioAux+=abecedario.charAt(abecedario.length()-i);
 			}
 			abecedarioAux+=aux;
@@ -164,6 +182,7 @@ public class Prueba {
 					rta+=aux.charAt(i);	
 			}
 		}
+		System.out.println(rta);
 		return rta;
 	
 	}

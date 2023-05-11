@@ -7,19 +7,37 @@ public class Prueba {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		//String abecedario= "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
-		String abecedario= "ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyzáéíóú ,.";
-		//String abecedario3= "abcdefghijklmnñopqrstuvwxyz";
+		//String abecedario= "ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyzáéíóú ,.";
+		String abecedario3= "abcdefghijklmnopqrstuvwxyz";
 		System.out.println("Ingrese mensaje a encriptar");
 		String mensaje= scan.nextLine();
 		System.out.println("Ingrese salto");
 		int salto = scan.nextInt();
-		String encriptado=encriptaCesar(abecedario,mensaje,salto);
-		desencriptaCesar(encriptado,abecedario,salto);
+		String abecedarioMod = muestraAbecedarios(abecedario3,salto);
+		String encriptado=encriptaCesar(abecedario3,mensaje,salto,abecedarioMod);
+		desencriptaCesar(encriptado,abecedario3,salto,abecedarioMod);
 
 	}
 
+	public static String muestraAbecedarios(String abecedario, int salto) {
+		System.out.println(abecedario);
+		int aux = abecedario.length()-salto;
+		String abecedarioMod="";
+		while (aux<abecedario.length()) {
+			abecedarioMod+=abecedario.charAt(aux);
+			aux++;
+		}
+		aux=0;
+		while (aux<abecedario.length()-salto) {
+			abecedarioMod+=abecedario.charAt(aux);
+			aux++;
+		}
+		System.out.println(abecedarioMod);
+		return abecedarioMod;
+	}
 	
-	public static String encriptaCesar(String abecedario,String mensaje,int salto) {
+	
+	public static String encriptaCesar(String abecedario,String mensaje,int salto,String abecedarioMod) {
 		String encriptado="";
 		int i,auxMensaje;
 		for(i=0;i<mensaje.length();i++) {
@@ -40,7 +58,7 @@ public class Prueba {
 		return encriptado;
 	}
 	
-	public static void desencriptaCesar (String encriptado,String abecedario,int salto) {
+	public static void desencriptaCesar (String encriptado,String abecedario,int salto,String abecedarioMod) {
 		String desencriptado="";
 		int i,auxEncriptado;
 		for(i=0;i<encriptado.length();i++) {
@@ -50,8 +68,9 @@ public class Prueba {
 				desencriptado += letra;
 			else {
 				auxEncriptado=buscaPos(letra,abecedario);
-				letra=getLetraDesencriptada(auxEncriptado,salto,abecedario);
-				desencriptado+=letra;
+				
+				//letra=getLetraDesencriptada(auxEncriptado,salto,abecedarioMod);
+				desencriptado+=abecedarioMod.charAt(auxEncriptado);
 			
 			}
 	
@@ -119,6 +138,10 @@ public class Prueba {
 		switch (auxLetra) {
 		case 59: {
 			rta = true;
+			break;
+		}
+		case 32: { //SI ME TOMAN CON ESPACIOS EN EL ALFABETO PONER ESTO COMO FALSE
+			rta=true;
 			break;
 		}
 		default:

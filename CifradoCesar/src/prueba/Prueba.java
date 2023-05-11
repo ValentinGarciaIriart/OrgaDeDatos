@@ -13,7 +13,7 @@ public class Prueba {
 		char desplazamiento = scan.nextLine().charAt(0);
 		System.out.println("Ingrese salto");
 		int saltoOrig= scan.nextInt();
-		String mensaje = "Nos vemos el lunes 24 a las 18hs en Plaza Mitre";
+		String mensaje = "cause";
 		String abecedario="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 		String abecedario2="abcdefghijklmnopqrstuvwxyz";
 		String encriptado="";
